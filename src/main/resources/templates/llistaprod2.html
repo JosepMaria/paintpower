@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang=es xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/header :: common-header"></head>
+
+<body>
+	<!-- Top Header -->
+	<div class="top-header">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-6 align-self-center pl-5">
+					<text class="pl-3" style="color:#191b1e;"><i class="fas fa-envelope"></i> mail@paintpower.cat</text>
+					<text class="pl-3" style="color:#191b1e;"><i class="fas fa-mobile-alt" style="color:#191b1e;"></i> 676045945</text>
+				</div>
+				<div class="col-lg-6 align-self-center text-right pr-5">
+					<p class="pr-2" id="idioma" style="display:inline;">Català</p>
+					<div class="dropdown" style="display:inline;top:3px;">
+						<a data-toggle="dropdown">
+							<i class="fas fa-language fa-2x" style="cursor:pointer;"></i>
+						</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" onclick="canviIdioma('Català')">Català</a>
+							<a class="dropdown-item" onclick="canviIdioma('Español')">Español</a>
+							<a class="dropdown-item" onclick="canviIdioma('English')">English</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /Top Header -->
+
+	<!-- middle header-->
+	<div class="middle-header">
+		<div class="container-fluid">
+			<div style="position:absolute;right:2%;">
+				<a href="https://www.facebook.com/"><i class="fab fa-facebook-f mx-1" style="cursor:pointer;"></i></a>
+				<a href="https://twitter.com/"><i class="fab fa-twitter mx-1" style="cursor:pointer;"></i></a>
+				<a href="https://www.flickr.com/"><i class="fab fa-flickr mx-1" style="cursor:pointer;"></i></a>
+				<a href="https://www.instagram.com/"><i class="fab fa-instagram mx-1" style="cursor:pointer;"></i></a>
+			</div>
+			<div class="row align-items-center no-gutters">
+				<div class="col-sm-12 d-block d-lg-none">
+					<a class="navbar-brand" href="#">
+						<img src="../static/images/logoAlfa1.png" th:src="@{images/logoAlfa1.png}" class="logo d-inline-block align-top" alt="">
+					</a>
+				</div>
+				<div class="col-lg-3 text-right d-none d-lg-block pr-3">
+					<a class="navbar-brand" href="#">
+						<img src="../static/images/logoAlfa1.png" th:src="@{images/logoAlfa1.png}" class="logo d-inline-block align-top" alt="">
+					</a>
+				</div>
+				<div class="col-lg-6 col-sm-8">
+					<div class="row mx-0">
+						<div class="col-lg-1"></div>
+						<div class="col-lg-10">
+							<form action="#" class="search-wrap">
+								<div class="input-group w-100">
+									<input type="text" class="form-control" style="width:50%;" placeholder="Buscar">
+									<select class="custom-select" name="category_name">
+										<option value="">Tots els departaments</option>
+										<option value="pintures">Pintures</option>
+										<option value="fusta">Fusta</option>
+										<option value="ferreteria">Ferreteria</option>
+										<option value="localitzacions">Localitzacions</option>
+							  	</select>
+									<div class="input-group-append">
+										<button class="btn" style="background-color:#f3c60a;" type="submit">
+											<i class="fas fa-search"></i>
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col-lg-1"></div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-12">
+				<div class="icontext px-2 middle-header-link">
+					<div class="dropdown">
+						<a class="middle-header-link" href="#" data-toggle="dropdown"><i class="fas fa-user fa-lg"></i>  Entra/Registra't</a>
+						<div class="dropdown-menu dropdown-lr my-0 py-0">
+							<div class="card-body my-login-page">
+								<h4 class="card-title text-center">Iniciar sessió</h4>
+								<form method="POST">
+									<div class="form-group">
+										<label for="email">Correu electrònic</label>
+										<input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+									</div>
+									<div class="form-group">
+										<label for="password">Contrasenya
+											<a href="forgot.html" class="float-right">
+												Has oblidat la contrasenya?
+											</a>
+										</label>
+										<input id="password" type="password" class="form-control" name="password" required data-eye>
+									</div>
+									<div class="form-group">
+										<label>
+											<input type="checkbox" name="remember"> Recorda'm
+										</label>
+									</div>
+									<div class="form-group no-margin">
+										<button type="submit" class="btn btn-primary btn-block">
+											Iniciar sessió
+										</button>
+									</div>
+									<div class="margin-top20 text-center">
+										No tens un compte? <a href="register.html">Crea'n un</a>
+									</div>
+									<input type="hidden" class="hide" name="token" id="token" value="a465a2791ae0bae853cf4bf485dbe1b6">
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="icontext px-2 middle-header-link">
+					<div class="icon-wrap">
+						<i class="fas fa-shopping-cart fa-lg"></i>
+						<span class="small badgecard badgecard-danger">0</span>
+					</div>
+					<div class="text-wrap">
+						<div class="" style="margin-left:10px;">Cistella</div>
+					</div>
+				</div>
+				<span class="badgecard1 badgecard-danger1" style="margin-left:10px;">0,00 <i class="fas fa-euro-sign"></i></span>
+			</div>
+		</div>
+	</div>
+	<!-- /middle-header-->
+
+	<!-- bottom-header-->
+	<div class="bottom-header" style="border-top: 1px solid black;border-bottom: 1px solid black;">
+		<div class="container-fluid">
+			<nav class="navbar navbar-expand-sm navbar-ligth p-0">
+				<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+		    		<span class="navbar-toggler-icon"></span>
+	    		</button>
+			<div class="collapse navbar-collapse" id="navbarMenu">
+				<ul class="navbar-nav mx-auto">
+					<!--mx-auto centra el menu-->
+					<li class="nav-item px-3">
+						<a href="#" class="nav-link">Inici</a>
+					</li>
+					<li class="nav-item px-3 dropdown megamenu">
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> Pintura</a>
+						<ul class="dropdown-menu mega-menu">
+							<div class="row">
+								<div class="col-sm-4">
+									<p><strong class="sub-menu-heading">GILMAPIN</strong></p>
+									<div id="carouselGilmapin" class="carousel slide" data-ride="carousel">
+									  <div class="carousel-inner">
+											<div class="carousel-item active text-center">
+												<a href="#"><img class="d-block img-fluid" src="../static/images/gilmapin/gilmaplas_mate_extra_plus_aroma100x100.jpg" th:src="@{images/gilmapin/gilmaplas_mate_extra_plus_aroma100x100.jpg}" alt="Second slide"></a>
+												<h6 class="text-left"><small>Gilmaplas Mate Extra Plus Aroma</small></h6>
+												<button class="btn btn-warning btn-sm float-left button-carousel">49,99 €</button> <button href="#" class="btn btn-sm float-right"><i class="fas fa-cart-arrow-down fa-1x"></i> Afegeix</button>
+											</div>
+											<div class="carousel-item text-center">
+									      <a href="#"><img class="d-block img-fluid" src="../static/images/gilmapin/ecologica-mate-sin-olor100x100.jpg" th:src="@{images/gilmapin/ecologica-mate-sin-olor100x100.jpg}" alt="Second slide"></a>
+												<h6 class="text-left"><small>Ecológica Mate Sin Olor</small></h6>
+                        <button class="btn btn-warning btn-sm float-left button-carousel">49,99 €</button> <button href="#" class="btn btn-sm float-right"><i class="fas fa-cart-arrow-down fa-1x"></i> Afegeix</button>
+									    </div>
+									    <div class="carousel-item text-center">
+									      <a href="#"><img class="d-block img-fluid" src="../static/images/gilmapin/gilmacril_elite100x100.jpg" th:src="@{images/gilmapin/gilmacril_elite100x100.jpg}" alt="Third slide" ></a>
+												<h6 class="text-left"><small>Gilmacril Elite Antimoho</small></h6>
+                        <button class="btn btn-warning btn-sm float-left button-carousel">49,99 €</button> <button href="#" class="btn btn-sm float-right"><i class="fas fa-cart-arrow-down fa-1x"></i> Afegeix</button>
+									    </div>
+									  </div> <!-- End carousel-inner -->
+									  <p class="carousel-control-prev" href="#carouselGilmapin" role="button" data-slide="prev">
+									    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+									    <span class="sr-only">Anterior</span>
+									  </p>
+									  <p class="carousel-control-next" href="#carouselGilmapin" role="button" data-slide="next">
+									    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+									    <span class="sr-only">Següent</span>
+									  </p>
+									</div><!-- End carousel slider-->
+									<div class="dropdown-divider"></div>
+									<div class="row">
+										<div class="col-sm-10">
+											<a href="#">Tots els productes</a>
+										</div>
+										<div class="col-sm-2">
+											<i class="fas fa-angle-right fa-1x"></i>
+										</div>
+									</div>
+								</div>
+								<div class=col-sm-8>
+									<div class="row">
+									<div class="col-sm-4">
+
+										<p><a class="subratllat_megamenu" href="#">Plàstiques mate</a></p>
+										<p><a class="subratllat_megamenu" href="#">Plàstiques satinades</a></p>
+										<p><a class="subratllat_megamenu" href="#">Impermeabilitzants</a></p>
+										<p><a class="subratllat_megamenu" href="#">Revestiments façanes</a></p>
+										<p><a class="subratllat_megamenu" href="#">Esportives</a></p>
+										<p><a class="subratllat_megamenu" href="#">Texturades</a></p>
+									</div>
+									<div class="col-sm-4">
+										<p><a class="subratllat_megamenu" href="#">De colors | Façanes</a></p>
+										<p><a class="subratllat_megamenu" href="#">De colors | Decoració</a></p>
+										<p><a class="subratllat_megamenu" href="#">Per a tintomètriques</a></p>
+										<p><a class="subratllat_megamenu" href="#">Esmalts</a></p>
+										<p><a class="subratllat_megamenu" href="#">Protecció fusta</a></p>
+										<p><a class="subratllat_megamenu" href="#">Indústria</a></p>
+									</div>
+									<div class="col-sm-4">
+										<p><a class="subratllat_megamenu" href="#">Tints</a></p>
+									  <p><a class="subratllat_megamenu" href="#">Tractaments especials</a></p>
+										<p><a class="subratllat_megamenu" href="#">Tractaments especials a l'aigua</a></p>
+										<p><a class="subratllat_megamenu" href="#">Complements</a></p>
+										<p><a class="subratllat_megamenu" href="#">Varis</a></p>
+										<p><a class="subratllat_megamenu" href="#">Esmalts a l'aigua</a></p>
+									</div>
+									</div>
+								</div>
+							</div>
+						</ul>
+					</li>
+					<li class="nav-item px-3 dropdown megamenu">
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> Fustalet</a>
+						<ul class="dropdown-menu mega-menu" style="width:500px;">
+							<div class="row">
+								<div class="col-sm-6">
+									<p><strong class="sub-menu-heading">FUSTALET</strong></p>
+									<div id="carouselFustalet" class="carousel slide" data-ride="carousel">
+										<div class="carousel-inner">
+											<div class="carousel-item active text-center">
+												<a href="#"><img class="d-block img-fluid" src="../static/images/fustalet/conjunts_1.jpg" th:src="@{images/fustalet/conjunts_1.jpg}" alt="First slide"></a>
+												<h6 class="text-left"><small>Conjunts</small></h6>
+												<button class="btn btn-warning btn-sm float-left button-carousel">49,99 €</button> <button href="#" class="btn btn-sm float-right"><i class="fas fa-cart-arrow-down fa-1x"></i> Afegeix</button>
+											</div>
+											<div class="carousel-item text-center">
+												<a href="#"><img class="d-block img-fluid" src="../static/images/fustalet/estanteries_1.jpg" th:src="@{images/fustalet/estanteries_1.jpg}" alt="Second slide"></a>
+												<h6 class="text-left"><small>Estanteries</small></h6>
+												<button class="btn btn-warning btn-sm float-left button-carousel">49,99 €</button> <button href="#" class="btn btn-sm float-right"><i class="fas fa-cart-arrow-down fa-1x"></i> Afegeix</button>
+											</div>
+											<div class="carousel-item text-center">
+												<a href="#"><img class="d-block img-fluid" src="../static/images/fustalet/testos_1.jpg" th:src="@{images/fustalet/testos_1.jpg}" alt="Third slide"></a>
+												<h6 class="text-left"><small>Testos</small></h6>
+												<button class="btn btn-warning btn-sm float-left button-carousel">49,99 €</button> <button href="#" class="btn btn-sm float-right"><i class="fas fa-cart-arrow-down fa-1x"></i> Afegeix</button>
+											</div>
+										</div> <!-- End carousel-inner -->
+										<p class="carousel-control-prev" href="#carouselFustalet" role="button" data-slide="prev">
+											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+											<span class="sr-only">Anterior</span>
+										</p>
+										<p class="carousel-control-next" href="#carouselFustalet" role="button" data-slide="next">
+											<span class="carousel-control-next-icon" aria-hidden="true"></span>
+											<span class="sr-only">Següent</span>
+										</p>
+									</div><!-- End carousel slider-->
+									<div class="dropdown-divider"></div>
+									<div class="row">
+										<div class="col-sm-10">
+											<a href="#">Tots els productes</a>
+										</div>
+										<div class="col-sm-2">
+											<i class="fas fa-angle-right fa-1x"></i>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="row">
+									<div class="col-sm-6">
+										<p><a class="subratllat_megamenu" href="#">Carros</a></p>
+										<p><a class="subratllat_megamenu" href="#">Casetes</a></p>
+										<p><a class="subratllat_megamenu" href="#">Conjunts</a></p>
+										<p><a class="subratllat_megamenu" href="#">Prestatgeries</a></p>
+									</div>
+									<div class="col-sm-6">
+										<p><a class="subratllat_megamenu" href="#">Testos</a></p>
+										<p><a class="subratllat_megamenu" href="#">Taulells</a></p>
+										<p><a class="subratllat_megamenu" href="#">Butaques</a></p>
+										<p><a class="subratllat_megamenu" href="#">Tamborets</a></p>
+									</div>
+								</div>
+							</div>
+						</ul>
+					</li>
+					<li class="nav-item px-3">
+						<a href="https://www.cofan.es" class="nav-link">Cofan</a>
+					</li>
+					<li class="nav-item px-3">
+						<a href="#" class="nav-link">Vols pintar casa teva?</a>
+					</li>
+					<li class="nav-item px-3">
+						<a href="#" class="nav-link">Contactar</a>
+					</li>
+				</ul>
+			</div>
+			</nav>
+		</div>
+	</div>
+	<!-- /bottom-header -->
+
+<nav aria-label="Breadcrumb">
+	<div class="container mt-3 px-0">
+		<ol class="breadcrumb">
+	    <li class="breadcrumb-item"><a class="sub" href="#">Inici</a></li>
+	    <li class="breadcrumb-item"><a class="sub" href="#">Pintura</a></li>
+	    <li class="breadcrumb-item"><a class="sub" href="#">Gilmapin</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Plàstiques mate</li>
+		</ol>
+	</div>
+</nav>
+
+<!-- Inici llista productes -->
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-lg-3 pl-0 pr-1">
+      <div class="listProd">
+				<div class="list-group list-group-flush">
+					<h2 class="title text-center" style="color: #585858;">Pintures</h2>
+					<h4 class="title" style="color: #5181e0">Gilmapin</h4>
+					<a class="list-group-item list-group-item-action" href="#">Plàstiques mate<span class="badge badge-pill float-right badge-outline-warning">10</span></a>
+					<a class="list-group-item list-group-item-action" href="#">Plàstiques satinades<span class="badge badge-pill float-right badge-outline-warning">&nbsp;4&nbsp;</span></a>
+					<a class="list-group-item list-group-item-action" href="#">Impermeabilitzants<span class="badge badge-pill float-right badge-outline-warning">&nbsp;3&nbsp;</span></a>
+					<a class="list-group-item list-group-item-action" href="#">Revestiments façanes<span class="badge badge-pill float-right badge-outline-warning">&nbsp;9&nbsp;</span></a>
+					<a class="list-group-item list-group-item-action" href="#">Esportives<span class="badge badge-pill float-right badge-outline-warning">&nbsp;4&nbsp;</span></a>
+					<a class="list-group-item list-group-item-action" href="#">Texturades<span class="badge badge-pill float-right badge-outline-warning">&nbsp;2&nbsp;</span></a>
+					<a class="list-group-item list-group-item-action" href="#">De colors | Façanes<span class="badge badge-pill float-right badge-outline-warning">&nbsp;2&nbsp;</span></a>
+					<a class="list-group-item list-group-item-action" href="#">De colors | Decoració<span class="badge badge-pill float-right badge-outline-warning">&nbsp;2&nbsp;</span></a>
+					<a class="list-group-item list-group-item-action" href="#">Per a tintomètriques<span class="badge badge-pill float-right badge-outline-warning">10</span></a>
+					<a class="list-group-item list-group-item-action" href="#">Esmalts<span class="badge badge-pill float-right badge-outline-warning">&nbsp;9&nbsp;</span></a>
+					<a class="list-group-item list-group-item-action" href="#">Protecció fusta<span class="badge badge-pill float-right badge-outline-warning">&nbsp;9&nbsp;</span></a>
+					<a class="list-group-item list-group-item-action" href="#">Indústria<span class="badge badge-pill float-right badge-outline-warning">&nbsp;4&nbsp;</span></a>
+					<a class="list-group-item list-group-item-action" href="#">Tints<span class="badge badge-pill float-right badge-outline-warning">&nbsp;2&nbsp;</span></a>
+					<a class="list-group-item list-group-item-action" href="#">Tractaments especials<span class="badge badge-pill float-right badge-outline-warning">&nbsp;5&nbsp;</span></a>
+					<a class="list-group-item list-group-item-action" href="#">Tractaments especials a l'aigua<span class="badge badge-pill float-right badge-outline-warning">&nbsp;7&nbsp;</span></a>
+					<a class="list-group-item list-group-item-action" href="#">Complements<span class="badge badge-pill float-right badge-outline-warning">44</span></a>
+					<a class="list-group-item list-group-item-action" href="#">Varis<span class="badge badge-pill float-right badge-outline-warning">10</span>
+					<a class="list-group-item list-group-item-action" href="#">Esmalts a l'aigua<span class="badge badge-pill float-right badge-outline-warning">&nbsp;3&nbsp;</span></a>
+				</div>
+      </div>
+    </div>
+    <div class="col-lg-9 pl-1 pr-0">
+      <div class="blocProd"> <!-- Inici llista productes -->
+					<div class="itemlist"> <!-- Inici item llista producte -->
+						<div class="row align-items-center">
+							<div class="col-sm-3">
+								<div class=""><img class="img-fluid" src="../static/images/gilmapin/G101.jpg" th:src="@{images/gilmapin/G101.jpg}"></div>
+							</div>
+							<div class="col-sm-6">
+								<div class="text-wrap">
+									<h4> Gilmapin Elite Antimoho  </h4>
+									<p class="my-2 text-muted">
+										Pintura plástica mate
+									</p>
+									<p> Gilmacril Elite es una pintura plástica mate acrílica 100% de máxima calidad en cubrición, blancura, rendimiento y lavabilidad. Su blanco radiante, aumenta la luminisidad a la superficie, creando ambientes más grandes y acabados perfecto de tactos muy suaves.</p>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="border-left p-4">
+									<div class="price-wrap">
+										<p><span class="h3 price">12.95</span> <i class="fas fa-euro-sign fa-1x"></i><span>/kg</span></p>
+									</div>
+									<p class="text-success">IVA no inclòs</p>
+									<a href="#" class="btn btn-outline-warning btn-sm mb-2"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> Afegeix </a>
+									<a href="#" class="btn btn-outline-secondary btn-sm"><i class="fa fa-list fa-lg icon-color-white"></i> Detalls&nbsp;&nbsp; </a>
+								</div>
+							</div>
+						</div>
+					</div> <!-- Fi item llista producte -->
+					<div class="itemlist"> <!-- Inici item llista producte -->
+						<div class="row align-items-center">
+							<div class="col-sm-3">
+								<div class=""><img class="img-fluid" src="../static/images/gilmapin/G102.jpg" th:src="@{images/gilmapin/G102.jpg}"></div>
+							</div>
+							<div class="col-sm-6">
+								<div class="text-wrap">
+									<h4> Gilmaplas Mate Extra Plus Aroma  </h4>
+									<p class="my-2 text-muted">
+										Pintura plástica mate
+									</p>
+									<p> Gilmaplas mate extra plus es un pintura plástica mate lavable, con protección del moho y verdín que proporciona a la superficie acabados de gran calidad por su suavidad al tacto, blanco luminoso y gran cubrición, aportando agradable aroma a su aplicación y en posteriores días.</p>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="border-left p-4">
+									<div class="price-wrap">
+										<p><span class="h3 price">12.95</span> <i class="fas fa-euro-sign fa-1x"></i><span>/kg</span></p>
+									</div>
+									<p class="text-success">IVA no inclòs</p>
+									<a href="#" class="btn btn-outline-warning btn-sm mb-2"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> Afegeix </a>
+									<a href="#" class="btn btn-outline-secondary btn-sm"><i class="fa fa-list fa-lg icon-color-white"></i> Detalls&nbsp;&nbsp; </a>
+								</div>
+							</div>
+						</div>
+					</div> <!-- Fi item llista producte -->
+					<div class="itemlist"> <!-- Inici item llista producte -->
+						<div class="row align-items-center">
+							<div class="col-sm-3">
+								<div class=""><img class="img-fluid" src="../static/images/gilmapin/G103.jpg" th:src="@{images/gilmapin/G103.jpg}"></div>
+							</div>
+							<div class="col-sm-6">
+								<div class="text-wrap">
+									<h4> Gilmaplas Export Mate  </h4>
+									<p class="my-2 text-muted">
+										Pintura plástica mate
+									</p>
+									<p> Gilmaplas Export Mate, es una pintura plástica de naturaleza acrílica estirenada, con muy buena relación calidad-precio y cualidades de blancura, cubrición y rendimiento que la direferencia de las demás, por su buen equilibrio de pigmentos y cargas.</p>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="border-left p-4">
+									<div class="price-wrap">
+										<p><span class="h3 price">12.95</span> <i class="fas fa-euro-sign fa-1x"></i><span>/kg</span></p>
+									</div>
+									<p class="text-success">IVA no inclòs</p>
+									<a href="#" class="btn btn-outline-warning btn-sm mb-2"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> Afegeix </a>
+									<a href="#" class="btn btn-outline-secondary btn-sm"><i class="fa fa-list fa-lg icon-color-white"></i> Detalls&nbsp;&nbsp; </a>
+								</div>
+							</div>
+						</div>
+					</div> <!-- Fi item llista producte -->
+					<div class="itemlist"> <!-- Inici item llista producte -->
+						<div class="row align-items-center">
+							<div class="col-sm-3">
+								<div class=""><img class="img-fluid" src="../static/images/gilmapin/G104.jpg" th:src="@{images/gilmapin/G104.jpg}"></div>
+							</div>
+							<div class="col-sm-6">
+								<div class="text-wrap">
+									<h4> Profesional Cubriente Aroma </h4>
+									<p class="my-2 text-muted">
+										Pintura plástica mate
+									</p>Profesional Cubriente Aroma, es una pintura plástica lavable y de muy buenas prestaciones, por su composición conseguimos acabados lisos, decorativos y bellos, su relación calidad-precio lo hacen imprescindibles en los trabajos cotidianos del día a día consiguiendo un gran rendimiento.</p>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="border-left p-4">
+									<div class="price-wrap">
+										<p><span class="h3 price">12.95</span> <i class="fas fa-euro-sign fa-1x"></i><span>/kg</span></p>
+									</div>
+									<p class="text-success">IVA no inclòs</p>
+									<a href="#" class="btn btn-outline-warning btn-sm mb-2"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> Afegeix </a>
+									<a href="#" class="btn btn-outline-secondary btn-sm"><i class="fa fa-list fa-lg icon-color-white"></i> Detalls&nbsp;&nbsp; </a>
+								</div>
+							</div>
+						</div>
+					</div> <!-- Fi item llista producte -->
+					<div class="itemlist"> <!-- Inici item llista producte -->
+						<div class="row align-items-center">
+							<div class="col-sm-3">
+								<div class=""><img class="img-fluid" src="../static/images/gilmapin/G105.jpg" th:src="@{images/gilmapin/G105.jpg}"></div>
+							</div>
+							<div class="col-sm-6">
+								<div class="text-wrap">
+									<h4>Ecohogar Maestranza Mate 300</h4>
+									<p class="my-2 text-muted">
+										Pintura plástica mate
+									</p>
+									<p>Ecohogar Maestranza 300, es una pintura plástica mate de un blanco luminoso constituida por copolimeros acrílicos, cargas y pigmentos seleccionados para concebir una pintura acorde a las exigencias del mercado y precios asequibles.</p>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="border-left p-4">
+									<div class="price-wrap">
+										<p><span class="h3 price">12.95</span> <i class="fas fa-euro-sign fa-1x"></i><span>/kg</span></p>
+									</div>
+									<p class="text-success">IVA no inclòs</p>
+									<a href="#" class="btn btn-outline-warning btn-sm mb-2"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> Afegeix </a>
+									<a href="#" class="btn btn-outline-secondary btn-sm"><i class="fa fa-list fa-lg icon-color-white"></i> Detalls&nbsp;&nbsp; </a>
+								</div>
+							</div>
+						</div>
+					</div> <!-- Fi item llista producte -->
+					<div class="itemlist"> <!-- Inici item llista producte -->
+						<div class="row align-items-center">
+							<div class="col-sm-3">
+								<div class=""><img class="img-fluid" src="../static/images/gilmapin/G106.jpg" th:src="@{images/gilmapin/G106.jpg}"></div>
+							</div>
+							<div class="col-sm-6">
+								<div class="text-wrap">
+									<h4>Ecológica Mate Sin Olor</h4>
+									<p class="my-2 text-muted">
+										Pintura plástica mate
+									</p>
+									<p>Gilmapin ecológica mate sin olor es un pintura plástica mate ecológica e inodora. Su formulación está exenta de disolventes lo cual le permite ser respetuosa con el medio ambiente. Lavable y de alta opacidad.</p>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="border-left p-4">
+									<div class="price-wrap">
+										<p><span class="h3 price">12.95</span> <i class="fas fa-euro-sign fa-1x"></i><span>/kg</span></p>
+									</div>
+									<p class="text-success">IVA no inclòs</p>
+									<a href="#" class="btn btn-outline-warning btn-sm mb-2"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> Afegeix </a>
+									<a href="#" class="btn btn-outline-secondary btn-sm"><i class="fa fa-list fa-lg icon-color-white"></i> Detalls&nbsp;&nbsp; </a>
+								</div>
+							</div>
+						</div>
+					</div> <!-- Fi item llista producte -->
+					<div class="itemlist"> <!-- Inici item llista producte -->
+						<div class="row align-items-center">
+							<div class="col-sm-3">
+								<div class=""><img class="img-fluid" src="../static/images/gilmapin/G107.jpg" th:src="@{images/gilmapin/G107.jpg}"></div>
+							</div>
+							<div class="col-sm-6">
+								<div class="text-wrap">
+									<h4>Bricogar Interior (Paredes y Techos)</h4>
+									<p class="my-2 text-muted">
+										Pintura plástica mate
+									</p>
+									<p>Bricogar Mate es una pintura plástica para el pintado de paredes y techos de yeso, escayola, cemento y hormigón en interior. Posee una gran facilidad de aplicación y buena cubrición dejando acabados muy blancos y luminosos.</p>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="border-left p-4">
+									<div class="price-wrap">
+										<p><span class="h3 price">12.95</span> <i class="fas fa-euro-sign fa-1x"></i><span>/kg</span></p>
+									</div>
+									<p class="text-success">IVA no inclòs</p>
+									<a href="#" class="btn btn-outline-warning btn-sm mb-2"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> Afegeix </a>
+									<a href="#" class="btn btn-outline-secondary btn-sm"><i class="fa fa-list fa-lg icon-color-white"></i> Detalls&nbsp;&nbsp; </a>
+								</div>
+							</div>
+						</div>
+					</div> <!-- Fi item llista producte -->
+					<div class="itemlist"> <!-- Inici item llista producte -->
+						<div class="row align-items-center">
+							<div class="col-sm-3">
+								<div class=""><img class="img-fluid" src="../static/images/gilmapin/G108.jpg" th:src="@{images/gilmapin/G108.jpg}"></div>
+							</div>
+							<div class="col-sm-6">
+								<div class="text-wrap">
+									<h4>Premium DosMil Oro</h4>
+									<p class="my-2 text-muted">
+										Pintura plástica mate
+									</p>
+									<p>Premium Dosmil Oro es una pintura plástica mate lavable, de excelente cubrición. Por su calidad Premium nos premite obtener unos acabados extraordinarios, de tacto suave sin dejar grabados de rodillo y un gran rendimiento, siendo el más ideal para acabado lisos.</p>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="border-left p-4">
+									<div class="price-wrap">
+										<p><span class="h3 price">12.95</span> <i class="fas fa-euro-sign fa-1x"></i><span>/kg</span></p>
+									</div>
+									<p class="text-success">IVA no inclòs</p>
+									<a href="#" class="btn btn-outline-warning btn-sm mb-2"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> Afegeix </a>
+									<a href="#" class="btn btn-outline-secondary btn-sm"><i class="fa fa-list fa-lg icon-color-white"></i> Detalls&nbsp;&nbsp; </a>
+								</div>
+							</div>
+						</div>
+					</div> <!-- Fi item llista producte -->
+					<div class="itemlist"> <!-- Inici item llista producte -->
+						<div class="row align-items-center">
+							<div class="col-sm-3">
+								<div class=""><img class="img-fluid" src="../static/images/gilmapin/G109.jpg" th:src="@{images/gilmapin/G109.jpg}"></div>
+							</div>
+							<div class="col-sm-6">
+								<div class="text-wrap">
+									<h4>Pintaplas Vinílico Mate</h4>
+									<p class="my-2 text-muted">
+										Pintura plástica mate
+									</p>
+									<p>Pintaplas Vinílico, es una pintura plástica mate interior exterior lavable de gran calidad, compuesta por pigmento, cargas, y copolímeros vinílicos que proporcionan, mayor rendimiento, cubrición, blancura luminosa y un tacto muy suave sin dejar gravados de rodillos, de muy bajo olor y salpicado.</p>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="border-left p-4">
+									<div class="price-wrap">
+										<p><span class="h3 price">12.95</span> <i class="fas fa-euro-sign fa-1x"></i><span>/kg</span></p>
+									</div>
+									<p class="text-success">IVA no inclòs</p>
+									<a href="#" class="btn btn-outline-warning btn-sm mb-2"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> Afegeix </a>
+									<a href="#" class="btn btn-outline-secondary btn-sm"><i class="fa fa-list fa-lg icon-color-white"></i> Detalls&nbsp;&nbsp; </a>
+								</div>
+							</div>
+						</div>
+					</div> <!-- Fi item llista producte -->
+					<div class="itemlist"> <!-- Inici item llista producte -->
+						<div class="row align-items-center">
+							<div class="col-sm-3">
+								<div class=""><img class="img-fluid" src="../static/images/gilmapin/G110.jpg" th:src="@{images/gilmapin/G110.jpg}"></div>
+							</div>
+							<div class="col-sm-6">
+								<div class="text-wrap">
+									<h4>PintaMate Aroma Lavable</h4>
+									<p class="my-2 text-muted">
+										Pintura plástica mate
+									</p>
+									<p>Pintamate Aroma es una pintura plástica lavable con muy buena propiedades de blancura, cubrición, lavabilidad y muy buena relación calidad-precio. Sus materias primas seleccionadas confieren unos resultados que sorprenden por su buen equilibrio en rendimiento y acabado.</p>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="border-left p-4">
+									<div class="price-wrap">
+										<p><span class="h3 price">12.95</span> <i class="fas fa-euro-sign fa-1x"></i><span>/kg</span></p>
+									</div>
+									<p class="text-success">IVA no inclòs</p>
+									<a href="#" class="btn btn-outline-warning btn-sm mb-2"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> Afegeix </a>
+									<a href="#" class="btn btn-outline-secondary btn-sm"><i class="fa fa-list fa-lg icon-color-white"></i> Detalls&nbsp;&nbsp; </a>
+								</div>
+							</div>
+						</div>
+					</div> <!-- Fi item llista producte -->
+      </div> <!-- Fi llista productes -->
+			<nav> <!-- Inici paginació -->
+			  <ul class="pagination pg-warning justify-content-center">
+			      <li class="page-item">
+			          <a class="page-link" aria-label="Anterior">
+			              <span aria-hidden="true">&laquo;</span>
+			              <span class="sr-only">Anterior</span>
+			          </a>
+			      </li>
+			      <li class="page-item active"><a class="page-link">1</a></li>
+			      <li class="page-item"><a class="page-link">2</a></li>
+			      <li class="page-item"><a class="page-link">3</a></li>
+			      <li class="page-item"><a class="page-link">4</a></li>
+			      <li class="page-item"><a class="page-link">5</a></li>
+			      <li class="page-item">
+			          <a class="page-link" aria-label="Següent">
+			              <span aria-hidden="true">&raquo;</span>
+			              <span class="sr-only">Següent</span>
+			          </a>
+			      </li>
+			  </ul>
+			</nav> <!-- Fi paginació -->
+
+    </div>
+  </div>
+</div>
+
+<!-- Fi llista productes -->
+
+
+	<footer class="container" th:replace="common/footer :: common-footer"></footer>
+	<div th:replace="common/header :: end-scripts"></div>
+</body>
+
+</html>

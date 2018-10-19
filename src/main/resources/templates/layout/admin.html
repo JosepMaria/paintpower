@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang=es xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:fragment="header-admin">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Administració Paintpower</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link href="/home/josepmaria/Desenvolupament/EclipseWorkspace/paintpower/src/main/resources/static/css/admin.css" rel="stylesheet" type="text/css" th:href="@{/css/admin.css}" />
+  <script src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- Sidebar Holder -->
+    <div id="sidebar-wrapper" th:fragment="sidebar-admin">
+      <nav id="sidebar" class="navbar p-0" role="navigation">
+        <div class="sidebar-header">
+          <h3 class="mb-0"><img src="/home/josepmaria/Desenvolupament/EclipseWorkspace/paintpower/src/main/resources/static/images/logoAdmin_normal.png" th:src="@{images/logoAdmin_normal.png}" alt=""></h3>
+          <strong><img src="/home/josepmaria/Desenvolupament/EclipseWorkspace/paintpower/src/main/resources/static/images/logoAdmin_small.png" th:src="@{images/logoAdmin_small.png}" alt=""></strong>
+        </div>
+        <ul class="list-unstyled components mb-0 navbar-nav">
+          <form action="#" class="search-wrap">
+            <div class="input-group row mx-0 px-3 pt-3">
+              <input type="text" class="form-control" style="width:50%;" placeholder="Buscar...">
+              <div class="input-group-append">
+                <button class="btn btn-search-admin" type="submit">
+		                  <i class="fas fa-search"></i>
+		                </button>
+              </div>
+            </div>
+          </form>
+          <p class="mb-0 pl-3 py-2">ADMINISTRACIÓ</p>
+          <li class="nav-item menu dropright active">
+          <a href="#" data-toggle="dropdown" class="dropdown-toggle pl-3 nav-link" data-placement="bottom" title="clients"><i class="fas fa-user mr-2"></i><span>Clients</span></a>
+            <ul class="dropdown-menu submenu alineacio-dreta py-0">
+                <li><a class="dropdown-item" href="#" data-toggle="tooltip" data-placement="right" title="llistar"><i class="far fa-eye"></i><span class="ml-2">Llistar</span></a></li>
+                <li><a class="dropdown-item" href="#" data-toggle="tooltip" data-placement="right" title="crear"><i class="fas fa-plus"></i><span class="ml-2">Crear</span></a></li>
+                <li><a class="dropdown-item" href="#" data-toggle="tooltip" data-placement="right" title="modificar"><i class="fas fa-edit"></i><span class="ml-2">Modificar</span></a></li>
+                <li><a class="dropdown-item" href="#" data-toggle="tooltip" data-placement="right" title="eliminar"><i class="fas fa-times"></i><span class="ml-2">Eliminar</span></a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a th:href="@{/admin/factures}" class="pl-3 nav-link" data-placement="bottom" title="factures"><i class="fas fa-file-invoice mr-2"></i><span>Factures</span></a>
+          </li>
+          <li class="nav-item menu dropright">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle pl-3 nav-link" data-placement="bottom" title="productes"><i class="fas fa-th mr-2"></i><span>Productes</span></a>
+            <ul class="dropdown-menu submenu alineacio-dreta py-0 text-center">
+              <li><a href="#" class="dropdown-item" data-toggle="tooltip" data-placement="right" title="pintures"><i class="fas fa-paint-roller"></i><span class="ml-2">Pintures</span></a></li>
+              <li><a href="#" class="dropdown-item" data-toggle="tooltip" data-placement="right" title="fustalet"><i class="fas fa-swatchbook"></i><span class="ml-2">Fustalet</span></a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a th:href="@{/admin/comandes}" class="pl-3 nav-link" data-placement="bottom" title="comandes"><i class="fas fa-file-alt mr-2"></i><span>Comandes</span></a>
+          </li>
+          <li class="nav-item">
+            <a th:href="@{/admin/informes}" class="pl-3 nav-link" data-placement="bottom" title="informes"><i class="far fa-chart-bar mr-2"></i><span>Informes</span></a>
+          </li>
+        </ul>
+      </nav>
+
+
+
+    </div>
+
+    <!-- topbar-admin-->
+    <div id="content-wrapper">
+      <div th:fragment="topbar-admin">
+        <nav class="navbar navbar-top navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+            <button class="navbar-toggler d-block" type="button" id="sidebarCollapse">
+      		  	<span class="navbar-toggler-icon"></span>
+      		  </button>
+            <div class="btn-group">
+              <button class="dropdown dropdown-admin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		                Jose Antonio Alarcón
+		              </button>
+              <div class="dropdown-menu dropdown-menu-right dropdown-menu-admin">
+                <button class="dropdown-item dropdown-item-admin px-0" type="button">&nbsp;El meu compte&nbsp;</button>
+                <button class="dropdown-item dropdown-item-admin px-0" type="button">&nbsp;Tancar sessió&nbsp;</button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <!-- Page Content Holder -->
+      
+      <section layout:fragment="content">
+		<p>Page content goes here</p>
+      </section>
+      
+    </div>
+  </div>
+  <!-- footer-admin-->
+  <div th:fragment="footer-admin">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip('disable');
+        $('.nav-link').tooltip('disable');
+
+        $( '#sidebar-wrapper .navbar-nav a' ).on( 'click', function () {
+        	$( '#sidebar-wrapper .navbar-nav' ).find( 'li.active' ).removeClass( 'active' );
+        	$( this ).parent( 'li' ).addClass( 'active' );
+        });
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+            $(this).toggleClass('active');
+            if ( $( "#sidebar" ).is( ".active" ) ) {
+                $('[data-toggle="tooltip"]').tooltip('enable');
+                $('.nav-link').tooltip('enable');
+            }
+            else{
+              $('[data-toggle="tooltip"]').tooltip('disable');
+              $('.nav-link').tooltip('disable');
+            }
+
+            $('#sidebar ul li').toggleClass('fa-lg');
+        });
+
+        $('.menu').click(function(event) {
+          return false;
+        });
+      });
+    </script>
+  </div>
+</body>
+
+</html>

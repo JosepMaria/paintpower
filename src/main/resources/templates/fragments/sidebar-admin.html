@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang=es xmlns:th="http://www.thymeleaf.org" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  	<div th:fragment="sidebar-admin">
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3 class="mb-0"><img src="/home/josepmaria/Desenvolupament/EclipseWorkspace/paintpower/src/main/resources/static/images/logoAlfa1.png" th:src="@{images/logoAlfa1.png}" class="logo" alt=""></h3>
+            <strong><img src="/home/josepmaria/Desenvolupament/EclipseWorkspace/paintpower/src/main/resources/static/images/logoAlfa1.png" th:src="@{images/logoAlfa1.png}" class="logoSmall" alt=""></strong>
+        </div>
+
+        <ul class="list-unstyled components">
+
+          <form action="#" class="search-wrap">
+            <div class="input-group row mx-0 px-3">
+              <input type="text" class="form-control" style="width:50%;" placeholder="Buscar...">
+              <div class="input-group-append">
+                <button class="btn btn-search-admin" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+
+            <p class="mb-0 pl-3 py-2">ADMINISTRACIÓ</p>
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle pl-3"><i class="fas fa-user mr-2"></i>Clients</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                  <li>
+                      <a href="admin">Llistar</a>
+                  </li>
+                    <li>
+                        <a href="#">Crear</a>
+                    </li>
+                    <li>
+                        <a href="#">Modificar</a>
+                    </li>
+                    <li>
+                        <a href="#">Eliminar</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="pl-3"><i class="fas fa-file-invoice mr-2"></i>Factures</a>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle pl-3"><i class="fas fa-th mr-2"></i>Productes</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#"><i class="fas fa-paint-roller mr-2"></i>Pintures</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fas fa-swatchbook mr-2"></i>Fustalet</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a th:href="@{/comandes}" class="pl-3"><i class="fas fa-file-alt mr-2"></i>Comandes</a>
+            </li>
+            <li>
+                <a th:href="@{/informes}" class="pl-3"><i class="far fa-chart-bar mr-2"></i>Informes</a>
+            </li>
+        </ul>
+        <div class="prova">añlskdfjlsadkfj</div>
+
+    </nav>
+    </div>
+  </body>
+</html>

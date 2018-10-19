@@ -1,0 +1,250 @@
+.card{
+  background-color: #ffffff;
+  height: 100%;
+/*Per fer que els botons estiguin a baix de tot (amb flex)*/
+
+
+}
+/*Per fer que els botons estiguin a baix de tot (amb flex)*/
+.card-block{
+  display: flex;
+  flex-flow: column nowrap;
+}
+/*Per fer que els botons estiguin a baix de tot (amb flex)*/
+.card-buttons{
+  margin-top:auto;
+  position: absolute;
+  bottom: 0;
+}
+
+
+
+.owl-item{
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.card:hover{
+border: solid 1px #777777;
+-webkit-box-shadow: 0px 0px 12px 2px #bbbbbb;
+box-shadow: 0px 0px 12px 2px #bbbbbb;
+background-color: white;
+}
+/*
+.card img:hover{
+  opacity: .8;
+  transition: .5s;
+}
+*/
+/*Si es treu aixo tampoc no fica el tamany de la card igual altura*/
+.owl-carousel .owl-stage {
+    display: flex;
+}
+/*Si es treu aixo tampoc no fica el tamany de la card igual altura*/
+
+.owl-carousel .owl-item img {
+    width: auto;
+    height: 100%;
+}
+
+
+.imgContainer{
+  width: 100%;
+height: 200px;
+}
+
+
+.card:hover::after{
+  opacity: .9;
+}
+
+.fa-chevron-left,
+.fa-chevron-right{
+  color: #6c757d;
+}
+
+.fa-chevron-left:hover,
+.fa-chevron-right:hover{
+  color: white;
+}
+
+.prev:hover .fa-chevron-left,
+.next:hover .fa-chevron-right{
+  color: white;
+}
+
+.prev:active,
+.next:active{
+      box-shadow: 0 0 8px 0px black;
+}
+
+
+
+
+
+
+/*========================================================
+                      Buttons
+=========================================================*/
+/*.buttons {
+  margin: 1em 0;
+  overflow: auto;
+}
+
+.btn:visited,
+.btn {
+   background-color: #19caaf;
+   border-radius: 0;
+   font-size: 15px;
+   font-weight: 400;
+   color: #fff;
+   position: relative;
+   line-height: 20px;
+   padding: 12px 16px;
+   box-shadow: none;
+}
+
+.btn:visited i,
+.btn i {
+  line-height: 20px;
+  font-size: 18px;
+  display: inline-block;
+  min-width: 17px;
+}
+
+.btn-link:hover,
+.btn-link:focus {
+  background: #19caaf;
+}
+*/
+/*++++
+.btn:hover,
+.btn:focus {
+  background-color: #2f2f2f;
+  color: #fff;
+}
+++++*/
+/*.btn {
+  padding: 7px 12px;
+}
+
+ .btn i {
+  font-size: 15px;
+  line-height: 18px;
+}
+
+ .btn {
+   padding: 0;
+   background: transparent;
+}
+
+ .btn i {
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  font-size: 20px;
+  background: #f2f2f2;
+  border-radius: 50%;
+  color: #c2c2c2;
+  -moz-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+
+.btn:hover i, .btn.btn-add:hover i {
+  background: #2f2f2f;
+  color: #FFF;
+}
+
+.btn.btn-add i {
+  background: #19caaf;
+  color: #FFF;
+}
+*/
+
+/*
+.card-buttons{
+  margin: 10px;
+}
+*/
+
+
+
+.btn-circle-card:hover {
+background-color: #333333;
+border-color: #111111;
+}
+
+
+.icon-color-white{
+  color:#141414;
+}
+
+.btn-circle-card:hover .icon-color-white{
+  color:white;
+}
+
+
+
+
+
+
+button.btn.btn-warning.btn-circle-card:focus {
+
+    box-shadow: 0 0 0 0;
+}
+
+button.btn.btn-warning.btn-circle-card:active:focus {
+  background-color: #333333;
+  border-color: #111111;
+
+        box-shadow: 0 0 20px 0px black;
+}
+
+
+
+.btn-circle-card {
+    width: 40px;
+    height: 40px;
+    padding: 6px 0px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+
+
+.card-header{
+  color: #26292d;
+  padding: 0;
+  background-color: rgba(0,0,0,0);
+  border-bottom: 0px solid rgba(0,0,0,.125);
+}
+
+.card-header:hover{
+  text-decoration: none;
+  color: #e4b300;/* daae0f  e4b60f e4b300 */
+  -webkit-transition: color 300ms linear;
+  -moz-transition: color 300ms linear;
+  -o-transition: color 300ms linear;
+  -ms-transition: color 300ms linear;
+  transition: color 300ms linear;
+  cursor: pointer;
+}
+
+.card-text{
+  color: #8e949a;
+  margin-bottom: 53px;
+}
+
+.card-price{
+  color: #fbc211;
+
+}
+
+.card-price h4{
+  display: inline;
+}

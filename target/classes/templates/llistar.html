@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title th:text="${titol}">Insert title here></title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+	<h1 class="text-secondary border border-success border-top-0 border-left-0 border-right-0" th:text="${titol}"></h1>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>nom</th>
+				<th>cognoms</th>
+				<th>email</th>
+				<th>tipus</th>
+				<th>data</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="client: ${clients}">
+				<td th:text="${client.id}"></td>
+				<td th:text="${client.nom}"></td>
+				<td th:text="${client.cognoms}"></td>
+				<td th:text="${client.email}"></td>
+				<td th:text="${client.tipus}"></td>
+				<td th:text="${client.createAt}"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<body>
+	<!-- Top Header -->
+	<div class="top-header" th:fragment="common-navbars-top-header">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-6 align-self-center pl-5">
+					<text class="pl-3" style="color:#191b1e;"><i class="fas fa-envelope"></i> mail@paintpower.cat</text>
+					<text class="pl-3" style="color:#191b1e;"><i class="fas fa-mobile-alt" style="color:#191b1e;"></i> 676045945</text>
+				</div>
+				<div class="col-lg-6 align-self-center text-right pr-5">
+					<p class="pr-2" id="idioma" style="display:inline;">Català</p>
+					<div class="dropdown" style="display:inline;top:3px;">
+						<a data-toggle="dropdown">
+							<i class="fas fa-language fa-2x" style="cursor:pointer;"></i>
+						</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" onclick="canviIdioma('Català')">Català</a>
+							<a class="dropdown-item" onclick="canviIdioma('Español')">Español</a>
+							<a class="dropdown-item" onclick="canviIdioma('English')">English</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /Top Header -->
+
+	<!-- middle header-->
+	<div class="middle-header" th:fragment="common-navbars-middle-header">
+		<div class="container-fluid">
+			<div style="position:absolute;right:2%;">
+				<a href="https://www.facebook.com/"><i class="fab fa-facebook-f mx-1" style="cursor:pointer;"></i></a>
+				<a href="https://twitter.com/"><i class="fab fa-twitter mx-1" style="cursor:pointer;"></i></a>
+				<a href="https://www.flickr.com/"><i class="fab fa-flickr mx-1" style="cursor:pointer;"></i></a>
+				<a href="https://www.instagram.com/"><i class="fab fa-instagram mx-1" style="cursor:pointer;"></i></a>
+			</div>
+			<div class="row align-items-center no-gutters">
+				<div class="col-sm-12 d-block d-lg-none">
+					<a class="navbar-brand" href="#">
+						<img src="../static/images/logoAlfa1.png" th:src="@{images/logoAlfa1.png}" class="logo d-inline-block align-top" alt="">
+					</a>
+				</div>
+				<div class="col-lg-3 text-right d-none d-lg-block pr-3">
+					<a class="navbar-brand" href="#">
+						<img src="../static/images/logoAlfa1.png" th:src="@{images/logoAlfa1.png}" class="logo d-inline-block align-top" alt="">
+					</a>
+				</div>
+				<div class="col-lg-6 col-sm-8">
+					<div class="row mx-0">
+						<div class="col-lg-1"></div>
+						<div class="col-lg-10">
+							<form action="#" class="search-wrap">
+								<div class="input-group w-100">
+									<input type="text" class="form-control" style="width:50%;" placeholder="Buscar">
+									<select class="custom-select" name="category_name">
+										<option value="">Tots els departaments</option>
+										<option value="pintures">Pintures</option>
+										<option value="fusta">Fusta</option>
+										<option value="ferreteria">Ferreteria</option>
+										<option value="localitzacions">Localitzacions</option>
+							  	</select>
+									<div class="input-group-append">
+										<button class="btn" style="background-color:#f3c60a;" type="submit">
+											<i class="fas fa-search"></i>
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col-lg-1"></div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-12">
+					<div class="icontext px-2 middle-header-link">
+						<div class="dropdown" sec:authorize="!isAuthenticated()">
+							<a class="middle-header-link" href="#" data-toggle="dropdown"><i class="fas fa-user fa-lg"></i>  Entra/Registra't</a>
+							<div class="dropdown-menu dropdown-lr my-0 py-0">
+								<div class="card-body my-login-page">
+									<h4 class="card-title text-center">Iniciar sessió</h4>
+									<form method="POST">
+										<div class="form-group">
+											<label for="email">Correu electrònic</label>
+											<input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+										</div>
+										<div class="form-group">
+											<label for="password">Contrasenya
+												<a href="forgot.html" class="float-right">
+													Has oblidat la contrasenya?
+												</a>
+											</label>
+											<input id="password" type="password" class="form-control" name="password" required data-eye>
+										</div>
+										<div class="form-group">
+											<label>
+												<input type="checkbox" name="remember"> Recorda'm
+											</label>
+										</div>
+										<div class="form-group no-margin">
+											<button type="submit" class="btn btn-primary btn-block">
+												Iniciar sessió
+											</button>
+										</div>
+										<div class="margin-top20 text-center">
+											No tens un compte? <a href="register.html">Crea'n un</a>
+										</div>
+										<input type="hidden" class="hide" name="token" id="token" value="a465a2791ae0bae853cf4bf485dbe1b6">
+									</form>
+								</div>
+							</div>
+						</div>
+						<div sec:authorize="isAuthenticated()">
+							<form id="logoutForm" th:action="@{/logout}" method="post">
+							<button onclick="document.getElementById('logoutForm').submit();" type="submit">Logout</button>
+							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+							</form>
+						</div>
+					</div>
+					<div class="icontext px-2 middle-header-link">
+						<div class="icon-wrap">
+							<i class="fas fa-shopping-cart fa-lg"></i>
+							<span class="small badgecard badgecard-danger">0</span>
+						</div>
+						<div class="text-wrap">
+							<div class="" style="margin-left:10px;">Cistella</div>
+						</div>
+					</div>
+					<span class="badgecard1 badgecard-danger1" style="margin-left:10px;">0,00 <i class="fas fa-euro-sign"></i></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /middle-header-->
+
+	<!-- bottom-header-->
+	<div class="bottom-header" th:fragment="common-navbars-bottom-header" style="border-top: 1px solid black;border-bottom: 1px solid black;">
+		<div class="container-fluid">
+			<nav class="navbar navbar-expand-sm navbar-ligth p-0">
+				<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+		    		<span class="navbar-toggler-icon"></span>
+	    		</button>
+			<div class="collapse navbar-collapse" id="navbarMenu">
+				<ul class="navbar-nav mx-auto">
+					<!--mx-auto centra el menu-->
+					<li class="nav-item px-3">
+						<a href="index" class="nav-link">Inici</a>
+					</li>
+					<li class="nav-item px-3 dropdown megamenu">
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> Pintura</a>
+						<ul class="dropdown-menu mega-menu">
+							<div class="row">
+								<div class="col-sm-4">
+									<p><strong class="sub-menu-heading">GILMAPIN</strong></p>
+									<div id="carouselGilmapin" class="carousel slide" data-ride="carousel">
+									  <div class="carousel-inner">
+											<div class="carousel-item active text-center">
+												<a href="#"><img class="d-block img-fluid" src="../static/images/gilmapin/gilmaplas_mate_extra_plus_aroma100x100.jpg" th:src="@{images/gilmapin/gilmaplas_mate_extra_plus_aroma100x100.jpg}" alt="Second slide"></a>
+												<h6 class="text-left"><small>Gilmaplas Mate Extra Plus Aroma</small></h6>
+												<button class="btn btn-warning btn-sm float-left button-carousel">49,99 €</button> <button href="#" class="btn btn-sm float-right"><i class="fas fa-cart-arrow-down fa-1x"></i> Afegeix</button>
+											</div>
+											<div class="carousel-item text-center">
+									      <a href="#"><img class="d-block img-fluid" src="../static/images/gilmapin/ecologica-mate-sin-olor100x100.jpg" th:src="@{images/gilmapin/ecologica-mate-sin-olor100x100.jpg}" alt="Second slide"></a>
+												<h6 class="text-left"><small>Ecológica Mate Sin Olor</small></h6>
+                        <button class="btn btn-warning btn-sm float-left button-carousel">49,99 €</button> <button href="#" class="btn btn-sm float-right"><i class="fas fa-cart-arrow-down fa-1x"></i> Afegeix</button>
+									    </div>
+									    <div class="carousel-item text-center">
+									      <a href="#"><img class="d-block img-fluid" src="../static/images/gilmapin/gilmacril_elite100x100.jpg" th:src="@{images/gilmapin/gilmacril_elite100x100.jpg}" alt="Third slide" ></a>
+												<h6 class="text-left"><small>Gilmacril Elite Antimoho</small></h6>
+                        <button class="btn btn-warning btn-sm float-left button-carousel">49,99 €</button> <button href="#" class="btn btn-sm float-right"><i class="fas fa-cart-arrow-down fa-1x"></i> Afegeix</button>
+									    </div>
+									  </div> <!-- End carousel-inner -->
+									  <p class="carousel-control-prev" href="#carouselGilmapin" role="button" data-slide="prev">
+									    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+									    <span class="sr-only">Anterior</span>
+									  </p>
+									  <p class="carousel-control-next" href="#carouselGilmapin" role="button" data-slide="next">
+									    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+									    <span class="sr-only">Següent</span>
+									  </p>
+									</div><!-- End carousel slider-->
+									<div class="dropdown-divider"></div>
+									<div class="row">
+										<div class="col-sm-10">
+											<a href="#">Tots els productes</a>
+										</div>
+										<div class="col-sm-2">
+											<i class="fas fa-angle-right fa-1x"></i>
+										</div>
+									</div>
+								</div>
+								<div class=col-sm-8>
+									<div class="row">
+									<div class="col-sm-4">
+
+										<p><a class="subratllat_megamenu" href="#">Plàstiques mate</a></p>
+										<p><a class="subratllat_megamenu" href="#">Plàstiques satinades</a></p>
+										<p><a class="subratllat_megamenu" href="#">Impermeabilitzants</a></p>
+										<p><a class="subratllat_megamenu" href="#">Revestiments façanes</a></p>
+										<p><a class="subratllat_megamenu" href="#">Esportives</a></p>
+										<p><a class="subratllat_megamenu" href="#">Texturades</a></p>
+									</div>
+									<div class="col-sm-4">
+										<p><a class="subratllat_megamenu" href="#">De colors | Façanes</a></p>
+										<p><a class="subratllat_megamenu" href="#">De colors | Decoració</a></p>
+										<p><a class="subratllat_megamenu" href="#">Per a tintomètriques</a></p>
+										<p><a class="subratllat_megamenu" href="#">Esmalts</a></p>
+										<p><a class="subratllat_megamenu" href="#">Protecció fusta</a></p>
+										<p><a class="subratllat_megamenu" href="#">Indústria</a></p>
+									</div>
+									<div class="col-sm-4">
+										<p><a class="subratllat_megamenu" href="#">Tints</a></p>
+									  <p><a class="subratllat_megamenu" href="#">Tractaments especials</a></p>
+										<p><a class="subratllat_megamenu" href="#">Tractaments especials a l'aigua</a></p>
+										<p><a class="subratllat_megamenu" href="#">Complements</a></p>
+										<p><a class="subratllat_megamenu" href="#">Varis</a></p>
+										<p><a class="subratllat_megamenu" href="#">Esmalts a l'aigua</a></p>
+									</div>
+									</div>
+								</div>
+							</div>
+						</ul>
+					</li>
+					<li class="nav-item px-3 dropdown megamenu">
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> Fustalet</a>
+						<ul class="dropdown-menu mega-menu" style="width:500px;">
+							<div class="row">
+								<div class="col-sm-6">
+									<p><strong class="sub-menu-heading">FUSTALET</strong></p>
+									<div id="carouselFustalet" class="carousel slide" data-ride="carousel">
+										<div class="carousel-inner">
+											<div class="carousel-item active text-center">
+												<a href="#"><img class="d-block img-fluid" src="../static/images/fustalet/conjunts_1.jpg" th:src="@{images/fustalet/conjunts_1.jpg}" alt="First slide"></a>
+												<h6 class="text-left"><small>Conjunts</small></h6>
+												<button class="btn btn-warning btn-sm float-left button-carousel">49,99 €</button> <button href="#" class="btn btn-sm float-right"><i class="fas fa-cart-arrow-down fa-1x"></i> Afegeix</button>
+											</div>
+											<div class="carousel-item text-center">
+												<a href="#"><img class="d-block img-fluid" src="../static/images/fustalet/estanteries_1.jpg" th:src="@{images/fustalet/estanteries_1.jpg}" alt="Second slide"></a>
+												<h6 class="text-left"><small>Estanteries</small></h6>
+												<button class="btn btn-warning btn-sm float-left button-carousel">49,99 €</button> <button href="#" class="btn btn-sm float-right"><i class="fas fa-cart-arrow-down fa-1x"></i> Afegeix</button>
+											</div>
+											<div class="carousel-item text-center">
+												<a href="#"><img class="d-block img-fluid" src="../static/images/fustalet/testos_1.jpg" th:src="@{images/fustalet/testos_1.jpg}" alt="Third slide"></a>
+												<h6 class="text-left"><small>Testos</small></h6>
+												<button class="btn btn-warning btn-sm float-left button-carousel">49,99 €</button> <button href="#" class="btn btn-sm float-right"><i class="fas fa-cart-arrow-down fa-1x"></i> Afegeix</button>
+											</div>
+										</div> <!-- End carousel-inner -->
+										<p class="carousel-control-prev" href="#carouselFustalet" role="button" data-slide="prev">
+											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+											<span class="sr-only">Anterior</span>
+										</p>
+										<p class="carousel-control-next" href="#carouselFustalet" role="button" data-slide="next">
+											<span class="carousel-control-next-icon" aria-hidden="true"></span>
+											<span class="sr-only">Següent</span>
+										</p>
+									</div><!-- End carousel slider-->
+									<div class="dropdown-divider"></div>
+									<div class="row">
+										<div class="col-sm-10">
+											<a href="#">Tots els productes</a>
+										</div>
+										<div class="col-sm-2">
+											<i class="fas fa-angle-right fa-1x"></i>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="row">
+									<div class="col-sm-6">
+										<p><a class="subratllat_megamenu" href="#">Carros</a></p>
+										<p><a class="subratllat_megamenu" href="#">Casetes</a></p>
+										<p><a class="subratllat_megamenu" href="#">Conjunts</a></p>
+										<p><a class="subratllat_megamenu" href="#">Prestatgeries</a></p>
+									</div>
+									<div class="col-sm-6">
+										<p><a class="subratllat_megamenu" href="#">Testos</a></p>
+										<p><a class="subratllat_megamenu" href="#">Taulells</a></p>
+										<p><a class="subratllat_megamenu" href="#">Butaques</a></p>
+										<p><a class="subratllat_megamenu" href="#">Tamborets</a></p>
+									</div>
+								</div>
+							</div>
+						</ul>
+					</li>
+					<li class="nav-item px-3">
+						<a href="https://www.cofan.es" class="nav-link">Cofan</a>
+					</li>
+					<li class="nav-item px-3">
+						<a href="#" class="nav-link">Vols pintar casa teva?</a>
+					</li>
+					<li class="nav-item px-3">
+						<a href="#" class="nav-link">Contactar</a>
+					</li>
+				</ul>
+			</div>
+			</nav>
+		</div>
+	</div>
+	<!-- /bottom-header -->
+
+
+
+
+</body>
+</html>

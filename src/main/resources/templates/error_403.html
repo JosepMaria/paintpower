@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang=es xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="common/header :: common-header"></head>
+
+<body style="background-color: #f6f6f6;">
+
+	<div id="register" class="container pb-5">
+		<div class="row justify-content-center pt-3">
+			<a href="#"> <img src="../static/images/logoAlfa1.png"
+				th:src="@{images/logoAlfa1.png}"
+				class="logo d-inline-block align-top" alt="">
+			</a>
+		</div>
+		<div class="row justify-content-center">
+			<div class="col-lg-6 px-4 pb-5 pt-5">
+				<div class="alert alert-danger text-center">
+					<h2>ACCÉS DENEGAT</h2>
+					<p>
+						<span th:text="${#authentication.name}"></span>, no tens permisos
+						per accedir a aquest recurs.
+					</p>
+					<div class="text-center pt-3">
+						<a th:href="@{/index}" class="btn btn-outline-danger"
+							role="button">Tornar a l'inici</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="container" th:replace="common/footer :: common-footer"></footer>
+	<div th:replace="common/header :: end-scripts"></div>
+
+</body>
+
+</html>

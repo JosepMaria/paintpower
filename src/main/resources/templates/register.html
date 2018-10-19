@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang=es xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/header :: common-header"></head>
+
+<body style="background-color:#f6f6f6;">
+
+<div id="register" class="container pb-5" >
+	<div class="row justify-content-center">
+		<a href="#">
+			<img src="../static/images/logoAlfa1.png" th:src="@{images/logoAlfa1.png}" class="logo d-inline-block align-top" alt="">
+		</a>
+	</div>
+	<div class="row justify-content-center pt-4">
+		<p class="col-lg-5 h4 text-white text-center mb-0" style="background-color:#838383;">CREA EL COMPTE</p>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-lg-5 border px-4 pb-5 pt-3">
+		<form>
+			<fieldset class="form-group">
+				<p class="h6 text-black">Tipus de compte:</p>
+				<div class="form-check">
+					<label class="form-check-label black">
+							<input type="radio" v-model="selected" class="form-check-input" name="optionTipusCompte" id="particular" value="particular">
+							Particular
+							</label>
+				</div>
+				<div class="form-check">
+					<label class="form-check-label black">
+							<input type="radio" v-model="selected" class="form-check-input" name="optionTipusCompte" id="autonom" value="autonom">
+							 Autònom
+							</label>
+				</div>
+				<div class="form-check">
+					<label class="form-check-label black">
+							 <input type="radio" v-model="selected" class="form-check-input" name="optionTipusCompte" id="empresa" value="empresa">
+							Empresa
+							</label>
+				</div>
+			</fieldset>
+			<small class="text-muted">Els camps marcats amb * son obligatoris.</small>
+			<div class="form-group">
+				<label for="email" class="black">Correu electrònic*</label>
+				<input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Correu electrònic">
+			</div>
+			<div class="form-group">
+				<label for="contrasenya" class="black">Contrasenya*</label>
+				<input type="password" class="form-control" id="contrasenya" placeholder="Contrasenya">
+				<small id="emailHelp" class="form-text text-muted">Ha de tenir almenys 6 caràcters.</small>
+			</div>
+			<div class="form-group">
+				<label for="confirmarcontrasenya" class="black">Confirmar Contrasenya*</label>
+				<input type="password" class="form-control" id="confirmarcontrasenya" placeholder="Contrasenya">
+			</div>
+			<template v-if="selected === 'autonom' || selected === 'empresa'">
+						<div class="form-group">
+							<label for="empresa" class="black">Empresa*</label>
+							<input type="text" class="form-control" id="empresa" placeholder="Empresa">
+						</div>
+						<div class="form-group">
+							<label for="cif" class="black">CIF*</label>
+							<input type="password" class="form-control" id="cif" placeholder="CIF">
+						</div>
+						<div class="form-group">
+							<label for="personacontacte" class="black">Persona contacte</label>
+							<input type="password" class="form-control" id="personacontacte" placeholder="Contacte">
+						</div>
+						<div class="form-group">
+							<label for="direccio" class="black">Direcció*</label>
+							<input type="password" class="form-control" id="direccio" placeholder="Direcció">
+						</div>
+						<div class="form-group">
+							<label for="codipostal" class="black">Codi Postal*</label>
+							<input type="password" class="form-control" id="codipostal" placeholder="Codi Postal">
+						</div>
+						<div class="form-group">
+							<label for="poblacio" class="black">Població*</label>
+							<input type="password" class="form-control" id="poblacio" placeholder="Població">
+						</div>
+						<div class="form-group">
+							<label for="provincia" class="black">Província</label>
+							<input type="password" class="form-control" id="provincia" placeholder="Província">
+						</div>
+						<div class="form-group">
+							<label for="telefon" class="black">Telèfon</label>
+							<input type="password" class="form-control" id="telefon" placeholder="Telèfon">
+						</div>
+						<div class="form-group">
+							<label for="mobil" class="black">Mòbil*</label>
+							<input type="password" class="form-control" id="mobil" placeholder="Mòbil">
+						</div>
+					</template>
+			<div class="form-check pb-4">
+				<input type="checkbox" class="form-check-input" id="politica">
+				<label class="form-check-label" id="politica" for="politica"><small class="text-muted">He llegit i accepto la política de privacitat.</small></label>
+			</div>
+			<button type="button" id="crear_compte" disabled="disabled" class="btn btn-warning btn-block">Crear compte</button>
+		</form>
+		</div>
+	</div>
+</div>
+
+	<footer class="container" th:replace="common/footer :: common-footer"></footer>
+	<div th:replace="common/header :: end-scripts"></div>
+
+	<script>
+
+	$('#politica').click(function() {
+	if ($('#crear_compte').is(':disabled')) {
+    	$('#crear_compte').removeAttr('disabled');
+    } else {
+    	$('#crear_compte').attr('disabled', 'disabled');
+    }
+});
+	</script>
+</body>
+
+</html>

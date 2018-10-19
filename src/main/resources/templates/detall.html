@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang=es xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/header :: common-header"></head>
+
+<body>
+	<!-- Top Header -->
+	<div th:replace="common/navbars :: common-navbars-top-header"></div>
+	<!-- /Top Header -->
+
+	<!-- middle header-->
+	<div th:replace="common/navbars :: common-navbars-middle-header"></div>
+	<!-- /middle-header-->
+
+	<!-- bottom-header-->
+	<div th:replace="common/navbars :: common-navbars-bottom-header"></div>
+	<!-- /bottom-header -->
+	
+<nav aria-label="Breadcrumb">
+	<div class="container mt-3">
+		<ol class="breadcrumb">
+	    <li class="breadcrumb-item"><a class="sub" href="#">Inici</a></li>
+	    <li class="breadcrumb-item"><a class="sub" href="#">Pintura</a></li>
+	    <li class="breadcrumb-item"><a class="sub" href="#">Gilmapin</a></li>
+			<li class="breadcrumb-item"><a class="sub" href="#">Plàstiques mate</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Gilmacril élite mate</li>
+		</ol>
+	</div>
+</nav>
+
+<!-- Inici detall producte -->
+<div class="container pb-5" id="color">
+	<div class="cardDetall">
+		<div class="row no-gutters">
+			<aside class="col-sm-5 border-right"> <!-- Inici imatge producte -->
+				<article class="gallery-wrap">
+				<div class="img-big-wrap pt-5">
+				  <div><img class="" src="../static/images/gilmapin/gilmacril_elite_mate.jpg" th:src="@{images/gilmapin/gilmacril_elite_mate.jpg}" alt=""></div>
+				</div>
+				</article>
+			</aside> <!-- Fi imatge producte -->
+			<aside class="col-sm-7"> <!-- Inici detall producte-->
+				<article class="p-5">
+					<h2 class="title mb-3">Gilmacril élite mate</h2>
+				<div class="mb-3">
+					<div class="h3 text-warning preu">
+						<p>12.95 <i class="fas fa-euro-sign fa-xs"></i><span>/kg</span></p>
+					</div>
+				</div>
+				<dl>
+				  <dt>Descripció</dt>
+				  <dd><p>Gilmacril Elite es una pintura plástica mate acrílica 100% de máxima calidad en cubrición, blancura, rendimiento y lavabilidad. Su blanco radiante, aumenta la luminisidad a la superficie, creando ambientes más grandes y acabados perfecto de tactos muy suaves. </p></dd>
+				</dl>
+				<dl class="row">
+				  <dt class="col-sm-3">Ús</dt>
+				  <dd class="col-sm-9 text-secondary">Interior - Exterior</dd>
+				  <dt class="col-sm-3">Aplicació</dt>
+				  <dd class="col-sm-9 text-secondary">Pinzell - rodets - pistoles</dd>
+				  <dt class="col-sm-3">Rendiment</dt>
+				  <dd class="col-sm-9 text-secondary">10/14 m²/litre</dd>
+					<dt class="col-sm-3">Acabat</dt>
+					<dd class="col-sm-9 text-secondary">Mate</dd>
+					<dt class="col-sm-3">Netejabilitat</dt>
+					<dd class="col-sm-9 text-secondary">Excelent</dd>
+					<dt class="col-sm-3">Recubriment</dt>
+					<dd class="col-sm-9 text-secondary">Recubriment total amb dos capes</dd>
+				</dl>
+				<hr>
+					<div class="row">
+						<div class="col-sm-3">
+							<dl class="dlist-inline">
+							  <dt>Quantitat </dt>
+							  <dd>
+							  	<select class="form-control form-control-sm" v-model="quantitat" @change="calcularPreu(); mostrarDetall()">
+										<option> ... </option>
+							  		<option> 1 </option>
+							  		<option> 2 </option>
+							  		<option> 3 </option>
+										<option> 4 </option>
+										<option> 5 </option>
+										<option> 6 </option>
+										<option> 7 </option>
+										<option> 8 </option>
+										<option> 9 </option>
+							  	</select>
+							  </dd>
+							</dl>
+						</div>
+						<div class="col-sm-4">
+							<dl class="dlist-inline">
+								  <dt>Tamany </dt>
+								  <dd>
+								  	<label class="form-check form-check-inline">
+									  <input class="form-check-input" type="radio" name="colorsCheckRadio" id="checkcolors1" v-model="tamany" @change="carregarTooltip(); calcularPreu(12.95); mostrarDetall()" value="15">
+									  <span class="form-check-label">15 L.</span>
+									</label>
+									<label class="form-check form-check-inline">
+									  <input class="form-check-input" type="radio" name="colorsCheckRadio" id="checkcolors2" v-model="tamany" @change="carregarTooltip(); calcularPreu(14.95); mostrarDetall();" value="4">
+									  <span class="form-check-label">4 L.</span>
+									</label>
+								  </dd>
+							</dl>
+						</div>
+						<div class="col-sm-5">
+							<template v-if="tamany">	<!-- Inici color escollit -->
+								<dl class="dlist-inline">
+									<dt>Color </dt>
+									<dd class="color rounded" v-bind:style="{'background-color':colour}" @change="mostrarDetall()"></dd>
+								</dl>
+							</template>	<!-- Fi color escollit -->
+						</div>
+						<template v-if="tamany">	<!-- Inici colors -->
+							<div class="col-sm-10">
+								<dl class="dlist-inline">
+										<dt>Colors </dt>
+										<dd>
+												<div class="colors">
+													<div class="row">
+														<div class="col border colorDetall rounded cOcre" data-toggle="tooltip" data-placement="top" title="Ocre" @click="canviColorFons('#bc9349'); mostrarDetall()"></div>
+														<div class="col border colorDetall rounded cNegre" data-toggle="tooltip" data-placement="top" title="Negre" @click="canviColorFons('#000000'); mostrarDetall()"></div>
+														<div class="col border colorDetall rounded cGroc" data-toggle="tooltip" data-placement="top" title="Groc" @click="canviColorFons('#f9e400'); mostrarDetall()"></div>
+														<div class="col border colorDetall rounded cRoigOxid" data-toggle="tooltip" data-placement="top" title="Roig Oxid" @click="canviColorFons('#943852'); mostrarDetall()"></div>
+														<div class="col border colorDetall rounded cBlau" data-toggle="tooltip" data-placement="top" title="Blau"  @click="canviColorFons('#4567af'); mostrarDetall()"></div>
+														<div class="col border colorDetall rounded cRoigViu" data-toggle="tooltip" data-placement="top" title="Roig Viu" @click="canviColorFons('#e1161f'); mostrarDetall()"></div>
+														<div class="col border colorDetall rounded cMarro" data-toggle="tooltip" data-placement="top" title="Marró" @click="canviColorFons('#764e3d'); mostrarDetall()"></div>
+													</div>
+													<div class="row">
+														<div class="col border colorDetall rounded cVerd" data-toggle="tooltip" data-placement="top" title="Verd" @click="canviColorFons('#5c994c'); mostrarDetall()"></div>
+														<div class="col border colorDetall rounded cTaronja" data-toggle="tooltip" data-placement="top" title="Taronja" @click="canviColorFons('#f58e1a'); mostrarDetall()"></div>
+														<div class="col border colorDetall"></div>
+														<div class="col border colorDetall"></div>
+														<div class="col border colorDetall"></div>
+														<div class="col border colorDetall"></div>
+														<div class="col border colorDetall"></div>
+													</div>
+											</div>
+										</dd>
+								</dl>
+							</div>
+						</template>	<!-- Fi colors -->
+					</div>
+					<template v-if="mostrardetall">	<!-- Inici resum -->
+						<hr class="mt-0 mb-4">
+						<table class="table table-sm table-borderless">
+						  <thead>
+						    <tr class="bg-warning">
+						      <th scope="col">Quantitat</th>
+									<th scope="col">Tamany</th>
+						      <th scope="col">Preu</th>
+						      <th scope="col">Color</th>
+						      <th scope="col">Total</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <td></td>
+						      <td></td>
+						      <td></td>
+									<td></td>
+									<td></td>
+						    </tr>
+								<tr class="table-warning">
+						      <td>{{quantitat}}</td>
+						      <td>{{tamany}} L.</td>
+						      <td>{{preu}} <i class="fas fa-euro-sign fa-xs" style="margin-bottom:2px;"></i></td>
+									<td class="color rounded" v-bind:style="{'background-color':colour}"></td>
+									<td>{{total}} <i class="fas fa-euro-sign fa-xs" style="margin-bottom:2px;"></i></td>
+						    </tr>
+						  </tbody>
+						</table>
+					</template>	<!-- Fi resum -->
+					<hr>
+					<a href="#" class="btn  btn-warning"> Comprar </a>
+					<a href="#" class="btn  btn-outline-warning"> <i class="fas fa-shopping-cart"></i> Afegeix a la cistella </a>
+				</article>
+			</aside> <!-- Fi detall producte-->
+		</div>
+	</div>
+</div>
+<!-- Fi detall producte -->
+
+
+	<footer class="container" th:replace="common/footer :: common-footer"></footer>
+	<div th:replace="common/header :: end-scripts"></div>
+</body>
+
+</html>

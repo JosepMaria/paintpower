@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang=es xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="common/header :: common-header"></head>
+
+<body>
+	<!-- Top Header -->
+	<div th:replace="common/navbars :: common-navbars-top-header"></div>
+	<!-- /Top Header -->
+
+	<!-- middle header-->
+	<div th:replace="common/navbars :: common-navbars-middle-header"></div>
+	<!-- /middle-header-->
+
+	<!-- bottom-header-->
+	<div th:replace="common/navbars :: common-navbars-bottom-header"></div>
+	<!-- /bottom-header -->
+
+
+<p sec:authorize="isAuthenticated()">
+Usuari loguejat: <span sec:authentication="name"></span> | Roles: <span sec:authentication="principal.authorities"></span>
+</p>
+
+<div class="alert alert-success" th:if="${success != null}" th:text="${success}"></div>
+<div class="alert alert-danger" th:if="${error != null}" th:text="${error}"></div>
+<div class="alert alert-warning" th:if="${warning != null}" th:text="${warning}"></div>
+<div class="alert alert-info" th:if="${info != null}" th:text="${info}"></div>
+
+
+  <!-- inici main -->
+<!--	<div class="mb-2">
+		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+		  <ol class="carousel-indicators">
+		    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+		    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+		    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+		  </ol>
+		  <div class="carousel-inner">
+		    <div class="carousel-item active">
+		      <img class="d-block w-100 carouselIndex" src="../static/images/carousel1.jpg" th:src="@{images/carousel1.jpg}" alt="First slide">
+		    </div>
+		    <div class="carousel-item">
+		      <img class="d-block w-100 carouselIndex" src="../static/images/carousel2.jpg" th:src="@{images/carousel2.jpg}" alt="Second slide">
+		    </div>
+		    <div class="carousel-item">
+		      <img class="d-block w-100 carouselIndex" src="../static/images/carousel3.jpg" th:src="@{images/carousel3.jpg}" alt="Third slide">
+		    </div>
+				<div class="carousel-item">
+					<img class="d-block w-100 carouselIndex" src="../static/images/carousel5.jpg" th:src="@{images/carousel5.jpg}" alt="">
+				</div>
+				<div class="carousel-item">
+					<img class="d-block w-100 carouselIndex" src="../static/images/carousel10.jpg" th:src="@{images/carousel10.jpg}" alt="">
+				</div>
+				<div class="carousel-item">
+					<img class="d-block w-100 carouselIndex" src="../static/images/carousel12.jpg" th:src="@{images/carousel12.jpg}" alt="">
+				</div>
+		  </div>
+		  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		    <span class="sr-only">Previous</span>
+		  </a>
+		  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+		  </a>
+		</div>
+-->
+
+<!-- Inici característiques -->
+<div class="container">
+	<div class="row text-center pt-5">
+		<div class="col-md-4 col-sm-4 col-xs-12">
+			<a class="" href="#">
+				<img src="../static/images/logomain1.png" th:src="@{images/logomain1.png}">
+			</a>
+			<h4>Pintures</h4>
+			<p>
+				will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
+			</p>
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-12">
+			<a class="" href="#">
+				<img src="../static/images/logomain2.png" th:src="@{images/logomain2.png}">
+			</a>
+			<h4>Complements</h4>
+			<p>
+				will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
+			</p>
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-12">
+			<a class="" href="#">
+				<img src="../static/images/logomain3.png" th:src="@{images/logomain3.png}">
+			</a>
+			<h4>Fustalet</h4>
+			<p>
+				will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
+			</p>
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-12">
+			<a class="" href="#">
+				<img src="../static/images/logomain4.png" th:src="@{images/logomain4.png}">
+			</a>
+			<h4>Ferreteria</h4>
+			<p>
+				will have to make sure the prototype looks finished by inserting text or photo.make sure the prototype looks finished by.
+			</p>
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-12">
+			<a class="" href="#">
+				<img src="../static/images/logomain6.png" th:src="@{images/logomain6.png}">
+			</a>
+			<h4>Assessorament expert</h4>
+			<p>
+				Idees, solucions, serveis, qualitat, competencia, suport, ajuda, coneixement.
+			</p>
+		</div>
+		<div class="col-md-4 col-sm-4 col-xs-12">
+			<a class="" href="#">
+				<img src="../static/images/logomain5.png" th:src="@{images/logomain5.png}">
+			</a>
+			<h4>Qualitat</h4>
+			<p>
+				Productes 100% certificats amb la millor qualitat.
+			</p>
+		</div>
+	</div>
+</div>
+<!-- Fi característiques -->
+
+<!-- Inici carousel card novetats -->
+<h3 class="text-center mb-0 pt-5">ÚLTIMES NOVETATS</h3><hr class="separador mt-0">
+<div class="container">
+	<div class="row">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 text-right">
+					<a class="btn btn-outline-secondary prev-owl-novetats" title="endarrera"><i class="fa fa-lg fa-chevron-left"></i></a>
+					<a class="btn btn-outline-secondary next-owl-novetats" title="endavant"><i class="fa fa-lg fa-chevron-right"></i></a>
+				</div>
+			</div>
+		</div>
+		<div id="owl-novetats" class="owl-carousel owl-theme my-2">
+			<div class="card ml-2 mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/gilmacril_elite_mate.jpg" th:src="@{images/gilmapin/gilmacril_elite_mate.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Gilmacril élite mate</h5></div>
+					<div class="card-text px-2 text-left">Gilmacril Elite es una pintura plástica mate acrílica 100% de máxima calidad en cubrición, blancura, rendimiento y lavabilidad.</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/gilmalux_acrilico_alagua_brillante.jpg" th:src="@{images/gilmapin/gilmalux_acrilico_alagua_brillante.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Gilmalux acrílico al agua brillante</h5></div>
+					<div class="card-text px-2 text-left">lsadjg flkjsadlf kjls adkfjlsa kdf jlskañd jflkasdjflsakdj flskajdfljas dlfkjsald kfjls dkjfñaslkj flñak sjdflñ sakdjfñl askdfjls adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card ml-2 mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/premium_2000_oro.jpg" th:src="@{images/gilmapin/premium_2000_oro.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Premium 2000 oro</h5></div>
+					<div class="card-text px-2 text-left">lsadjg flkjsadlf kjls adkfjlsa kdf jdlfkjsald kfjls dkjfñaslkj flñak sjdflñ sakdjfñl askdfjls adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/selladora_standard_extra.jpg" th:src="@{images/gilmapin/selladora_standard_extra.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Selladora estándard extra</h5></div>
+					<div class="card-text px-2 text-left">lsadjgkfjlsa kdf jdlkdjfñl askdfjls adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/Pinta_todo_multisuperficie.jpg" th:src="@{images/gilmapin/Pinta_todo_multisuperficie.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Pinta todo multisuperficie</h5></div>
+					<div class="card-text px-2 text-left">lsadjgkfjlsa kdf jdlfkakdjfñl askdfjls adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/premium_2000_oro.jpg" th:src="@{images/gilmapin/premium_2000_oro.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Premium 2000 oro</h5></div>
+					<div class="card-text px-2 text-left">lsadjgkff jdlfkakdjfñl askdfjls adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/premium_2000_oro.jpg" th:src="@{images/gilmapin/premium_2000_oro.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Premium 2000 oro</h5></div>
+					<div class="card-text px-2 text-left">lsadjgkff jdlfkakdjfñl askdfjls fdsfsddddddddddddd ddd adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/premium_2000_oro.jpg" th:src="@{images/gilmapin/premium_2000_oro.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Premium 2000 oro</h5></div>
+					<div class="card-text px-2 text-left">ljls fdsfsddddddddddddd ddd ddddddddddddewrewr ew rwer erer rerererer ereee adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/premium_2000_oro.jpg" th:src="@{images/gilmapin/premium_2000_oro.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Premium 2000 oro</h5></div>
+					<div class="card-text px-2 text-left">ljls fdsfsdddddddddddddddddewrewr ew rwer erer rerererer ereee adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/premium_2000_oro.jpg" th:src="@{images/gilmapin/premium_2000_oro.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Premium 2000 oro</h5></div>
+					<div class="card-text px-2 text-left">ljls fdsfs786 08909xcvxc8v09xcv9 09vsd09f sd09f8wrewr ew rwer erer rerererer ereee adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/premium_2000_oro.jpg" th:src="@{images/gilmapin/premium_2000_oro.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Premium 2000 oro</h5></div>
+					<div class="card-text px-2 text-left">ljls fdsfsddddddddddddd ddd ddddddddddddewrewr ew rwer erer rerererer ereee adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="card-img-top-250" src="../static/images/gilmapin/premium_2000_oro.jpg" th:src="@{images/gilmapin/premium_2000_oro.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Premium 2000 oro</h5></div>
+					<div class="card-text px-2 text-left">ljls fdsfsddddddddddddd ddd ddddddddddddewrewr ew rwer erer rerererer ereee adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Fi carousel card novetats-->
+
+<!-- Inici carousel card destacats -->
+<h3 class="text-center mb-0 pt-5">PRODUCTES DESTACATS</h3><hr class="separador mt-0">
+<div class="container">
+	<div class="row">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 text-right">
+					<a class="btn btn-outline-secondary prev-owl-destacats" title="endarrera"><i class="fa fa-lg fa-chevron-left"></i></a>
+					<a class="btn btn-outline-secondary next-owl-destacats" title="endavant"><i class="fa fa-lg fa-chevron-right"></i></a>
+				</div>
+			</div>
+		</div>
+		<div id="owl-destacats" class="owl-carousel owl-theme my-2">
+			<div class="card ml-2 mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/gilmacril_elite_mate.jpg" th:src="@{images/gilmapin/gilmacril_elite_mate.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Gilmacril élite mate</h5></div>
+					<div class="card-text px-2 text-left">Gilmacril Elite es una pintura plástica mate acrílica 100% de máxima calidad en cubrición, blancura, rendimiento y lavabilidad.</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/gilmalux_acrilico_alagua_brillante.jpg" th:src="@{images/gilmapin/gilmalux_acrilico_alagua_brillante.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Gilmalux acrílico al agua brillante</h5></div>
+					<div class="card-text px-2 text-left">lsadjg flkjsadlf kjls adkfjlsa kdf jlskañd jflkasdjflsakdj flskajdfljas dlfkjsald kfjls dkjfñaslkj flñak sjdflñ sakdjfñl askdfjls adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card ml-2 mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/premium_2000_oro.jpg" th:src="@{images/gilmapin/premium_2000_oro.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Premium 2000 oro</h5></div>
+					<div class="card-text px-2 text-left">lsadjg flkjsadlf kjls adkfjlsa kdf jdlfkjsald kfjls dkjfñaslkj flñak sjdflñ sakdjfñl askdfjls adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/selladora_standard_extra.jpg" th:src="@{images/gilmapin/selladora_standard_extra.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Selladora estándard extra</h5></div>
+					<div class="card-text px-2 text-left">lsadjgkfjlsa kdf jdlkdjfñl askdfjls adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/Pinta_todo_multisuperficie.jpg" th:src="@{images/gilmapin/Pinta_todo_multisuperficie.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Pinta todo multisuperficie</h5></div>
+					<div class="card-text px-2 text-left">lsadjgkfjlsa kdf jdlfkakdjfñl askdfjls adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/premium_2000_oro.jpg" th:src="@{images/gilmapin/premium_2000_oro.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Premium 2000 oro</h5></div>
+					<div class="card-text px-2 text-left">lsadjgkff jdlfkakdjfñl askdfjls adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/premium_2000_oro.jpg" th:src="@{images/gilmapin/premium_2000_oro.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Premium 2000 oro</h5></div>
+					<div class="card-text px-2 text-left">lsadjgkff jdlfkakdjfñl askdfjls fdsfsddddddddddddd ddd adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/premium_2000_oro.jpg" th:src="@{images/gilmapin/premium_2000_oro.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Premium 2000 oro</h5></div>
+					<div class="card-text px-2 text-left">ljls fdsfsddddddddddddd ddd ddddddddddddewrewr ew rwer erer rerererer ereee adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/premium_2000_oro.jpg" th:src="@{images/gilmapin/premium_2000_oro.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Premium 2000 oro</h5></div>
+					<div class="card-text px-2 text-left">ljls fdsfsdddddddddddddddddewrewr ew rwer erer rerererer ereee adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/premium_2000_oro.jpg" th:src="@{images/gilmapin/premium_2000_oro.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Premium 2000 oro</h5></div>
+					<div class="card-text px-2 text-left">ljls fdsfs786 08909xcvxc8v09xcv9 09vsd09f sd09f8wrewr ew rwer erer rerererer ereee adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="img-fluid" src="../static/images/gilmapin/premium_2000_oro.jpg" th:src="@{images/gilmapin/premium_2000_oro.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Premium 2000 oro</h5></div>
+					<div class="card-text px-2 text-left">ljls fdsfsddddddddddddd ddd ddddddddddddewrewr ew rwer erer rerererer ereee adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+			<div class="card mx-1 item">
+				<div class="px-4 pt-4 pb-1 imgContainer">
+					<img class="card-img-top-250" src="../static/images/gilmapin/premium_2000_oro.jpg" th:src="@{images/gilmapin/premium_2000_oro.jpg}" alt="">
+				</div>
+				<div class="card-block">
+					<div class="card-price px-2 text-center pb-1"><h4 class="font-weight-bold">23.37</h4><i class="fas fa-euro-sign"></i></div>
+					<div class="card-header px-2"><h5>Premium 2000 oro</h5></div>
+					<div class="card-text px-2 text-left">ljls fdsfsddddddddddddd ddd ddddddddddddewrewr ew rwer erer rerererer ereee adñfjksa ñd</div>
+					<div class="card-buttons px-2 py-2">
+						<button class="btn btn-warning btn-circle-card title-card" data-toggle="tooltip" data-placement="top" title="Afegeix a cistella"><i class="fas fa-cart-arrow-down fa-lg icon-color-white"></i> </button>
+						<button class="btn btn-warning btn-circle-card" data-toggle="tooltip" data-placement="top" title="Detalls"><i class="fa fa-list fa-lg icon-color-white"></i> </button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Fi carousel card destacats -->
+</div>
+<!-- fi main-->
+
+
+	<footer class="container" th:replace="common/footer :: common-footer"></footer>
+	<div th:replace="common/header :: end-scripts"></div>
+</body>
+</html>
