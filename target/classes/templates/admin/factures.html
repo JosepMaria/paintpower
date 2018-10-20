@@ -1,27 +1,10 @@
 <!DOCTYPE html>
-<html lang=es xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-  layout:decorate="~{layout/admin}">
-
-<head th:replace="layout/admin :: header-admin"></head>
-
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/admin}">
+<head>
+<meta charset="UTF-8">
+<title>Administració Paintpower: Factures</title>
+</head>
 <body>
-    <div class="wrapper">
-        <!-- Sidebar Holder -->
-		<div th:replace="layout/admin :: sidebar-admin"></div>	    
-                    <!-- Page Content Holder -->
-                                        <section layout:fragment="content">
-    <p>This is a paragraph from content page 1</p>
-  </section>
-       <!--  <div  id="content" >
-        	<div th:replace="layout/admin :: topbar-admin"></div>
-            FACTURES
-
-        </div> -->
-    </div>
-
-	<div th:replace="layout/admin :: footer-admin"></div>
-
+	<section layout:fragment="content" class="container">factures</section>
 </body>
-
-
 </html>
